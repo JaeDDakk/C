@@ -14,7 +14,7 @@ int main()
 	avg = sum / 3;
 
 	printf("sum %d\n", sum);
-	printf("avg %d", avg);
+	printf("avg %d\n", avg);
 
 	return 0;
 }
