@@ -8,21 +8,22 @@ int main()
 {
 	char ch;
 	char asdf[26] = { 0 };
-	int b = 65;
 
 	while (1)
 	{
 		printf("입력 >> ");
 		scanf(" %c", &ch);
-		if (ch >= 'A' || ch <= 'Z')
+		if (ch >= 'A' && ch <= 'Z')
 		{
-			asdf[ch - 'A'] = ch;
+			asdf[ch - 'A']++;
 		}
 		else
 			break;
 	}
 	for (int i = 0; i < 26; i++)
 	{
-		printf("%c:",)
+		if (asdf[i] != 0)
+			printf(" %c : %d\n", asdf[i + 'A'], asdf[i]);
+								/*이부분 틀림*/
 	}
 }
