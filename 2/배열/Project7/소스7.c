@@ -10,11 +10,17 @@ int main()
 	
 	for (int i = 0; i < size; i++)
 	{
+		
 		if (asdf[i] == ch)
 		{
+			if (asdf[i] != ch)
+			{
+				printf("none");
+				break;
+			}
 			printf("%d\n", i);
+			break;
 		}
-		printf("none");
 	}
 	return 0;
 }

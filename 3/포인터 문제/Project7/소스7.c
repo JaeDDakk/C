@@ -12,9 +12,14 @@ int main()
 	{
 		if (a == *(p + i))
 		{
+			if (a = !*(p + i))
+			{
+				printf("none");
+				break;
+			}
 			printf("%d\n", i);
+			break;
 		}
-		printf("none");
 	}
 	return 0;
 }
