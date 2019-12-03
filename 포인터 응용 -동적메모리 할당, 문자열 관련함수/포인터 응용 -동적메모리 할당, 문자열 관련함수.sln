@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "포인터 응용 -동적메모리 할당, 문자열 관련함수", "포인터 응용 -동적메모리 할당, 문자열 관련함수\포인터 응용 -동적메모리 할당, 문자열 관련함수.vcxproj", "{1197FB8C-3760-430D-A302-651E400E82C1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "메인 함수의 인자 전달", "메인 함수의 인자 전달\메인 함수의 인자 전달.vcxproj", "{E74FFA77-FC04-4B05-A944-12A35A610007}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{1197FB8C-3760-430D-A302-651E400E82C1}.Release|x64.Build.0 = Release|x64
 		{1197FB8C-3760-430D-A302-651E400E82C1}.Release|x86.ActiveCfg = Release|Win32
 		{1197FB8C-3760-430D-A302-651E400E82C1}.Release|x86.Build.0 = Release|Win32
+		{E74FFA77-FC04-4B05-A944-12A35A610007}.Debug|x64.ActiveCfg = Debug|x64
+		{E74FFA77-FC04-4B05-A944-12A35A610007}.Debug|x64.Build.0 = Debug|x64
+		{E74FFA77-FC04-4B05-A944-12A35A610007}.Debug|x86.ActiveCfg = Debug|Win32
+		{E74FFA77-FC04-4B05-A944-12A35A610007}.Debug|x86.Build.0 = Debug|Win32
+		{E74FFA77-FC04-4B05-A944-12A35A610007}.Release|x64.ActiveCfg = Release|x64
+		{E74FFA77-FC04-4B05-A944-12A35A610007}.Release|x64.Build.0 = Release|x64
+		{E74FFA77-FC04-4B05-A944-12A35A610007}.Release|x86.ActiveCfg = Release|Win32
+		{E74FFA77-FC04-4B05-A944-12A35A610007}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
