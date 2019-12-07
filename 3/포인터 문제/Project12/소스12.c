@@ -6,21 +6,19 @@ int main()
 	int asdf_1[rows][cols];
 	int asdf_2[rows][cols];
 	int mul;
-	int* p1[] = asdf_1[cols];
-	int* p2[] = asdf_2[cols];
 
 	printf("first array\n");
 	for (int i = 0; i < rows; i++)
 	{
 		for (int j = 0; j < cols; j++)
-			scanf("%d", asdf_1[j] + i); 
+			scanf_s("%d", &asdf_1[i][j]);
 		printf("\n");
 	}
 	printf("second array\n");
 	for (int i = 0; i < rows; i++)
 	{
 		for (int j = 0; j < cols; j++)
-			scanf("%d", asdf_2[j] + i);
+			scanf_s("%d", &asdf_2[i][j]);
 		printf("\n");
 	}
 
@@ -28,8 +26,8 @@ int main()
 	{
 		for (int j = 0; j < cols; j++)
 		{
-			mul = *(asdf_1[j] + i) * *(asdf_2[j] + i);
-			printf("%3d ", mul);
+			mul = asdf_1[i][j] * asdf_2[i][j];
+			printf("%d ", mul);
 		}printf("\n");
 	}return 0;
 }
