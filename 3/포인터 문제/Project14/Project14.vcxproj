@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{8A8DE28D-0BCE-4EDC-A64C-DC3591FB4877}</ProjectGuid>
+    <ProjectGuid>{0AFAEA5A-C982-4FA4-A032-B538F09763A7}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Project13</RootNamespace>
+    <RootNamespace>Project14</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -143,7 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="소스13.c" />
+    <ClCompile Include="소스14.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
