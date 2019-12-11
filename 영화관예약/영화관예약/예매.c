@@ -13,6 +13,12 @@ int print_menu();
 int ans1;
 int seats[SEAT_ROW][SEAT_COL] = { 0 };	//ÁÂ¼® ¹è¿­
 //char Login[USER_MAX][2][30];
+typedef struct __member
+{
+	char Id;
+	char Pw;
+	char Name;
+}member;
 int main()
 {
 	int first_menu_ans;
