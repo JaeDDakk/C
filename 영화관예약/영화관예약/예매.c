@@ -22,14 +22,13 @@ typedef struct __member
 int main()
 {
 	int first_menu_ans;
-	while (1)
-	{
-		printf("1. 로그인 및 좌석예약\n");
-		printf("2. 회원가입\n");
-		printf("3. 종료\n");
-		scanf_s("%d", &first_menu_ans);
-		show();// 예매 시스템
-	}
+
+	printf("1. 로그인 및 좌석예약\n");
+	printf("2. 회원가입\n");
+	printf("3. 종료\n");
+	scanf_s("%d", &first_menu_ans);
+	show();// 예매 시스템
+
 	return 0;
 }//메인
 void show()
