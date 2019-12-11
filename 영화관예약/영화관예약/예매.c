@@ -44,6 +44,7 @@ void show()
 		pattern();//========
 		seat_status(); // 0 0 0 0 0 0 0 0 0
 		reservation(); // 예약, 이미예약되면 다시
+		cancel_reservation();
 	}
 }
 void pattern()
