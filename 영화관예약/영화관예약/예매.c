@@ -1,8 +1,19 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #define SEAT_COL 10
 #define SEAT_ROW 10
 #define USER_MAX 10
+#define SIZE 10
+typedef struct __member
+{
+	char Id[30];
+	char Pw[30];
+	char Name[30];
+	int Age;
+	int r_seats[SEAT_ROW][SEAT_COL];
+}member;
+void show();
 void pattern();
 void seat();
 void seat_status();
@@ -10,86 +21,128 @@ void reservation();
 void cancel_reservation();
 int print_menu();
 int ans1;
-int seats[SEAT_ROW][SEAT_COL] = { 0 };	//좌석 배열
-char Login[USER_MAX][2][30];
+int seats[SEAT_ROW][SEAT_COL] = { 0, };	//좌석 배열
+
 int main()
-{
-	char id[30], pw[30];
-	int first_menu_ans, index;
+{	
+	char check;
+	int i ,index;
+	char ans_id[30], ans_pw[30], ans_name[30];
+	int first_menu_ans, user_count = 0;
+	member user[USER_MAX];
+	user[USER_MAX].r_seats[SEAT_ROW][SEAT_COL] = 0;
+
 	while (1)
 	{
-		printf("1. 로그인 및 좌석예약\n");
+		printf("\n1. 로그인 및 좌석예약\n");
 		printf("2. 회원가입\n");
-		printf("3. 종료\n");
+		printf("3. 종료\n\n");
 		scanf_s("%d", &first_menu_ans);
-
-		if (first_menu_ans == 1) //로그인
+		
+		if (first_menu_ans == 3) // 3일 때 종료
+			break;	
+		if (first_menu_ans == 2) // 2일 때 회원가입
 		{
-
-			printf("Id를 입력하시오: ");
-			scanf_s("%s", id);
-			index = 0;
-			for (int i = 0; i < USER_MAX; i++)
+			while(1)
 			{
-				if (strcmp(Login[index][0], id, 30) == 0)
+				if (user_count >= USER_MAX)
 				{
-					printf("Pw를 입력하시오: ");
-					scanf_s("%s", pw);
-					if (strcmp(Login[index][1], pw, 30) == 0)
-					{
-						printf("로그인 되었습니다.\n\n");
-
-						ans1 = print_menu(); //예약 취소 종료
-						if (ans1 == 3)
-							break;
-						pattern();//========
-						seat();//1 2 3 4....10
-						pattern();//========
-						seat_status(); // 0 0 0 0 0 0 0 0 0
-						reservation(); // 예약, 이미예약되면 다시
-						cancel_reservation();//취소, 이미빈자리면 다시
-					}
-				}
-				index++;
-			}
-			printf("없다\n");
-		} //로그인
-		else if (first_menu_ans == 2)//회원가입
-		{
-			static int user_count = 0;
-			if (user_count >= 9)
-				printf("회원수가 가득 찼습니다.");
-			else
-			{
-				while (1)
-				{
-					printf("Id를 입력하시오: ");
-					scanf_s("%s", Login[user_count][0],id,30);
-					index = 0;
-					for (int i = 0; i < USER_MAX; i++)//중복 확인
-					{
-						if (strcmp(Login[index][0], id, 30) == 0)
-						{
-							printf("아이디가 중복되었습니다.");
-							break;
-						}
-						index++;
-					}
-					strcpy_s(Login[user_count][0], id, 30);
-					printf("Pw를 입력하시오: ");
-					strcpy_s(Login[user_count][1], pw, 30);
-					user_count++;
+					printf("회원이 꽉 찼습니다.");
 					break;
 				}
+				printf("회원가입 하시겠습니까? Y or N ");
+				scanf(" %c", &check);
+				if (check == 'N')
+					break;
+				else if (check == 'Y')
+				{
+					printf("Id를 입력하세요 >> ");
+					scanf(" %s", ans_id);
+					index = 0;
+
+					for (i = 0; i < user_count; i++)
+					{
+						if (strcmp(user[i].Id, ans_id) == 0)	//
+						{										//아이디 중복 체크
+							index++;							//
+						}										//
+					}
+					if (index == 0)
+					{
+						strcpy(user[user_count].Id, ans_id);
+						printf("Pw를 입력하세요 >> ");
+						scanf(" %s", ans_pw);
+						strcpy(user[user_count].Pw, ans_pw);
+						printf("Name을 입력하세요 >> ");
+						scanf(" %s", ans_name, 29);
+						strcpy(user[user_count].Name, ans_name);
+						printf("Age를 입력하세요 >> ");
+						scanf("%d", &user[user_count].Age);
+						printf("회원가입에 성공하였습니다.\n");
+						user_count++;
+						break;
+					}
+					else
+					{
+						printf("이미 등록되어있는 Id입니다.\n\n");
+						break;
+					}
+				}
 			}
 		}
-		else if (first_menu_ans == 3)//종료
+		if (first_menu_ans == 1)//로그인 및 예약 
 		{
-			break;
+			while (1)
+			{
+				printf("로그인 하시겠습니까? Y or N ");
+				scanf(" %c", &check);
+				if (check == 'N')
+					break;
+				else if (check == 'Y')
+				{
+					printf("Id를 입력하세요 >> ");
+					scanf(" %s", ans_id,29);
+					printf("Pw를 입력하세요 >> ");
+					scanf(" %s", ans_pw,29);
+					for (i = 0; i < user_count; i++)
+					{
+						if (strcmp(user[i].Id, ans_id) == 0)
+						{
+							if (strcmp(user[i].Pw, ans_pw) == 0)
+							{
+								printf("\n로그인 되었습니다.\n");
+							}
+							else
+								printf("\n실패\n");
+						}
+						else
+						{
+							printf("\n실패\n\n");
+						}
+							
+					}
+				}
+			}
 		}
+		//show();
 	}
 	return 0;
 }//메인
+void show()
+{
+	while (1)
+	{
+		ans1 = print_menu(); //예약 취소 종료
+		if (ans1 == 3)
+			break;
+		pattern();//========
+		seat();//1 2 3 4....10
+		pattern();//========
+		seat_status(); // 0 0 0 0 0 0 0 0 0
+		reservation(); // 예약, 이미예약되면 다시
+		cancel_reservation();//취소, 이미빈자리면 다시
+	}
+}
 void pattern()
 {
 	int i;
