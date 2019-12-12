@@ -3,6 +3,7 @@
 #define SEAT_COL 10
 #define SEAT_ROW 10
 #define USER_MAX 10
+void show();
 void pattern();
 void seat();
 void seat_status();
@@ -11,85 +12,40 @@ void cancel_reservation();
 int print_menu();
 int ans1;
 int seats[SEAT_ROW][SEAT_COL] = { 0 };	//좌석 배열
-char Login[USER_MAX][2][30];
+//char Login[USER_MAX][2][30];
+typedef struct __member
+{
+	char Id;
+	char Pw;
+	char Name;
+}member;
 int main()
 {
-	char id[30], pw[30];
-	int first_menu_ans, index;
-	while (1)
-	{
-		printf("1. 로그인 및 좌석예약\n");
-		printf("2. 회원가입\n");
-		printf("3. 종료\n");
-		scanf_s("%d", &first_menu_ans);
+	int first_menu_ans;
 
-		if (first_menu_ans == 1) //로그인
-		{
+	printf("1. 로그인 및 좌석예약\n");
+	printf("2. 회원가입\n");
+	printf("3. 종료\n");
+	scanf_s("%d", &first_menu_ans);
+	show();// 예매 시스템
 
-			printf("Id를 입력하시오: ");
-			scanf_s("%s", id);
-			index = 0;
-			for (int i = 0; i < USER_MAX; i++)
-			{
-				if (strcmp(Login[index][0], id, 30) == 0)
-				{
-					printf("Pw를 입력하시오: ");
-					scanf_s("%s", pw);
-					if (strcmp(Login[index][1], pw, 30) == 0)
-					{
-						printf("로그인 되었습니다.\n\n");
-
-						ans1 = print_menu(); //예약 취소 종료
-						if (ans1 == 3)
-							break;
-						pattern();//========
-						seat();//1 2 3 4....10
-						pattern();//========
-						seat_status(); // 0 0 0 0 0 0 0 0 0
-						reservation(); // 예약, 이미예약되면 다시
-						cancel_reservation();//취소, 이미빈자리면 다시
-					}
-				}
-				index++;
-			}
-			printf("없다\n");
-		} //로그인
-		else if (first_menu_ans == 2)//회원가입
-		{
-			static int user_count = 0;
-			if (user_count >= 9)
-				printf("회원수가 가득 찼습니다.");
-			else
-			{
-				while (1)
-				{
-					printf("Id를 입력하시오: ");
-					scanf_s("%s", Login[user_count][0],id,30);
-					index = 0;
-					for (int i = 0; i < USER_MAX; i++)//중복 확인
-					{
-						if (strcmp(Login[index][0], id, 30) == 0)
-						{
-							printf("아이디가 중복되었습니다.");
-							break;
-						}
-						index++;
-					}
-					strcpy_s(Login[user_count][0], id, 30);
-					printf("Pw를 입력하시오: ");
-					strcpy_s(Login[user_count][1], pw, 30);
-					user_count++;
-					break;
-				}
-			}
-		}
-		else if (first_menu_ans == 3)//종료
-		{
-			break;
-		}
-	}
 	return 0;
 }//메인
+void show()
+{
+	while (1)
+	{
+		ans1 = print_menu(); //예약 취소 종료
+		if (ans1 == 3)
+			break;
+		pattern();//========
+		seat();//1 2 3 4....10
+		pattern();//========
+		seat_status(); // 0 0 0 0 0 0 0 0 0
+		reservation(); // 예약, 이미예약되면 다시
+		cancel_reservation();
+	}
+}
 void pattern()
 {
 	int i;
