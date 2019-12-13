@@ -7,6 +7,16 @@ void array_copy(int* a, int* b, int size)
 	{
 		*(b + i) = *(a + i);
 	}
+	printf("a[]:");
+	for (i = 0; i < size; i++)
+	{
+		printf("%d", *(a + i));
+	}
+	printf("\nb[]:");
+	for (i = 0; i < size; i++)
+	{
+		printf("%d", *(b + i));
+	}
 }
 int main()
 {
