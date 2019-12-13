@@ -22,7 +22,6 @@ void cancel_reservation();
 int print_menu();
 int ans1;
 int seats[SEAT_ROW][SEAT_COL] = { 0, };	//좌석 배열
-
 int main()
 {	
 	char check;
@@ -30,8 +29,15 @@ int main()
 	char ans_id[30], ans_pw[30], ans_name[30];
 	int first_menu_ans, user_count = 0;
 	member user[USER_MAX];
-	user[USER_MAX].r_seats[SEAT_ROW][SEAT_COL] = 0;
-
+	user[USER_MAX].r_seats[SEAT_ROW][SEAT_COL];
+	//memset(user[USER_MAX].r_seats[SEAT_ROW][SEAT_COL],0,sizeof(user[USER_MAX].r_seats[SEAT_ROW][SEAT_COL]));
+	for (i = 0; i < 10; i++)
+	{
+		for (int j = 0; j < 10; j++)
+		{
+			printf("%d", user[USER_MAX].r_seats[i][j]);
+		}printf("\n");
+	}
 	while (1)
 	{
 		printf("\n1. 로그인 및 좌석예약\n");
@@ -111,6 +117,7 @@ int main()
 							if (strcmp(user[i].Pw, ans_pw) == 0)
 							{
 								printf("\n로그인 되었습니다.\n");
+								show();
 							}
 							else
 								printf("\n실패\n");
