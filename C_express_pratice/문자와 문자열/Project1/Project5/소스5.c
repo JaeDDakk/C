@@ -17,6 +17,7 @@ void main()
 		printf("문자를 입력하시오: ");
 		c = getchar();
 		getchar();
+		
 		if (c == '.')
 			break;
 		if (((c < 'A') || (c > 'Z')) && ((c < 'a')) || ((c > 'z')))
@@ -24,8 +25,9 @@ void main()
 			printf("경고\n");
 		}
 		else
-		{
-			printf("%c\n",change_c(c));
+		{	
+			putchar(change_c(c));
+			printf("\n");
 		}
 	}
 }
