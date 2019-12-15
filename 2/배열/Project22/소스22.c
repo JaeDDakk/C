@@ -1,36 +1,33 @@
-/*
 #include <stdio.h>
 #include <string.h>
-#define SIZE 100
-int main(void)
+int main()
 {
-	char a[SIZE] = "";
+	char s[100];
 	char temp;
-	int i, j, count;
-	j = 0; count = 0;
-	printf("문자열 입력 >> ");
-	fgets(a, sizeof(a) - 1, stdin);
-	strcat(a, " ");
-	while (count <= 100)
+	int i, count = 0;
+	printf("광고하고 싶은 텍스트를 입력하시오: ");
+	gets_s(s, sizeof(s));
+	printf("===================================\n");
+	while (count < strlen(s))
 	{
-		for (i = 0; i < strlen(a); i++)
+		for (i = 0; i < strlen(s); i++)
 		{
-			printf("%c", a[i]);
-		}
-		printf("\n");
-		for (i = 0; i < strlen(a); i++)
+			printf("%c", s[i]);
+		}printf("\n");
+		for (i = 0; i < strlen(s); i++)
 		{
 			if (i == 0)
 			{
-				temp = a[strlen(a)];
-				a[strlen(a)] = a[i];
-				a[i] = a[i + 1];
+				temp = s[strlen(s) - 1];
+				s[strlen(s) - 1] = s[i];
+				s[i] = s[i + 1];
 			}
-			else if (i == strlen(a) - 1)
-				a[i] = temp;
-			a[i] = a[i + 1];
+			else if (i == strlen(s) - 1)
+				s[i] = temp;
+			else
+				s[i] = s[i + 1];
 		}
 		count++;
 	}
 	return 0;
-}*/
+}

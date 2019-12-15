@@ -3,14 +3,21 @@
 #define size 100;
 int main()
 {
-	char asdf[200] = { NULL };
-	char a[100];
-	for (int i = 0; i < 2; i++)
+	char s1[100];
+	char s2[100];
+	int i, count = 0;
+	printf("문자열 입력 >> ");
+	gets_s(s1, sizeof(s1));
+	printf("문자열 입력 >> ");
+	gets_s(s2, sizeof(s2));
+
+	for (i = 0; s1[i] != NULL; i++)
 	{
-		printf("문자열 입력 >> ");
-		fgets(a, sizeof(a) - 1, stdin);
-		strcat(asdf, a);
+		count++;
 	}
-	
+	for (i = 0; s2[i] != NULL; i++)
+	{
+		count++;
+	}
+	printf("%d", count);
 }
-//모르겠다 
