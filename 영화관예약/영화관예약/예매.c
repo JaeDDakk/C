@@ -25,19 +25,30 @@ int seats[SEAT_ROW][SEAT_COL] = { 0, };	//좌석 배열
 int main()
 {	
 	char check;
-	int i ,index;
+	int i, j, o, index;
 	char ans_id[30], ans_pw[30], ans_name[30];
 	int first_menu_ans, user_count = 0;
 	member user[USER_MAX];
-	user[USER_MAX].r_seats[SEAT_ROW][SEAT_COL];
-	//memset(user[USER_MAX].r_seats[SEAT_ROW][SEAT_COL],0,sizeof(user[USER_MAX].r_seats[SEAT_ROW][SEAT_COL]));
-	for (i = 0; i < 10; i++)
+	for (i = 0; i < SIZE; i++) //유저 좌석 배열 초기화
 	{
-		for (int j = 0; j < 10; j++)
+		for (j = 0; j < SEAT_ROW; j++)
 		{
-			printf("%d", user[USER_MAX].r_seats[i][j]);
-		}printf("\n");
+			for (o = 0; o < SEAT_COL; o++)
+			{
+				user[i].r_seats[j][o] = 0;
+			}
+		}
 	}
+	/*for (i = 0; i < SIZE; i++)
+	{
+		for (j = 0; j < SEAT_ROW; j++)
+		{
+			for (o = 0; o < SEAT_COL; o++)
+			{
+				printf("%d ", user[i].r_seats[j][o]);
+			}printf("\n");
+		}printf("\n");
+	}*/
 	while (1)
 	{
 		printf("\n1. 로그인 및 좌석예약\n");
@@ -169,7 +180,7 @@ void seat()
 		else
 			printf("  %d", i + 1);
 	}printf("\n");
-}//열 숫자
+}//열 숫자 
 int print_menu()
 {
 
